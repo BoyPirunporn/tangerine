@@ -93,7 +93,7 @@ Decision: **macOS first, the user's own ffmpeg for the rest. ffmpeg is NOT bundl
 - [x] ffmpeg when installed (`brew install ffmpeg`): MP3 output, MKV in and out. Found at /opt/homebrew, /usr/local, /opt/local, or `TANGERINE_FFMPEG`; offers nothing when absent, menu-bar menu says how to install it
 - [x] Progress parsed from `-progress pipe:1`; the process is terminated on cancel and nothing partial is left (tested with a fake ffmpeg script)
 - [x] `.mkv` declared as a UTI in `Config/Info-extra.plist` (macOS doesn't know it)
-- [ ] Verified against a **real** ffmpeg (MP3 encoding, MKV remux, VideoToolbox H.264): the code paths are tested only with a fake ffmpeg so far
+- [x] Verified against a real ffmpeg (Homebrew 9.0.2): MP3 encode (decodes in macOS), MP4 → MKV → MOV round trip (plays in macOS), MKV → WAV/FLAC/M4A/MP3, VideoToolbox H.264, ffmpeg's own error text; cancelling a 60 s re-encode kills the process and leaves nothing (`RealFFmpegTests`, skipped when ffmpeg is absent)
 - **Gate:** one file per type converts; cancel leaves no partial file
 
 ---

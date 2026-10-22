@@ -127,6 +127,8 @@ final class OutputParser: @unchecked Sendable {
     private let lock = NSLock()
     private let progress: @Sendable (Double) -> Void
     private var duration: Double?
+    /// Progress that arrived (on its own pipe) before the clip length was known.
+    private var unreported: Double?
     private var log = ""
     private var pending = ""
 
@@ -142,10 +144,16 @@ final class OutputParser: @unchecked Sendable {
 
     func consumeLog(_ data: Data) {
         guard let text = String(data: data, encoding: .utf8), !text.isEmpty else { return }
+        var caughtUp: Double?
         lock.withLock {
             log = String((log + text).suffix(4000))
-            if duration == nil { duration = Self.duration(in: log) }
+            if duration == nil, let found = Self.duration(in: log) {
+                duration = found
+                if let micros = unreported, found > 0 { caughtUp = Self.fraction(micros, of: found) }
+                unreported = nil
+            }
         }
+        if let caughtUp { progress(caughtUp) }
     }
 
     func consumeOutput(_ data: Data) {
@@ -158,12 +166,19 @@ final class OutputParser: @unchecked Sendable {
             for line in lines.dropLast() {
                 // Both keys are microseconds, despite the name of the second.
                 guard line.hasPrefix("out_time_us=") || line.hasPrefix("out_time_ms="),
-                      let micros = Double(line.drop { $0 != "=" }.dropFirst()),
-                      let duration, duration > 0 else { continue }
-                fractions.append(min(max(micros / 1_000_000 / duration, 0), 0.99))
+                      let micros = Double(line.drop { $0 != "=" }.dropFirst()) else { continue }
+                if let duration, duration > 0 {
+                    fractions.append(Self.fraction(micros, of: duration))
+                } else {
+                    unreported = micros   // keep the latest until the length is known
+                }
             }
         }
         fractions.forEach(progress)
+    }
+
+    private static func fraction(_ micros: Double, of duration: Double) -> Double {
+        min(max(micros / 1_000_000 / duration, 0), 0.99)
     }
 
     /// "Duration: 00:01:23.45" → seconds.

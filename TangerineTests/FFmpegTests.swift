@@ -23,6 +23,7 @@ struct FFmpegTests {
         try script("ffmpeg-ok", """
         out="${@: -1}"
         echo "  Duration: 00:00:02.00, start: 0.000000" >&2
+        sleep 0.2
         printf 'out_time_us=500000\\nprogress=continue\\nout_time_us=1000000\\nprogress=continue\\n'
         print -r -- "$@" > "$out"
         printf 'out_time_us=2000000\\nprogress=end\\n'
@@ -183,6 +184,26 @@ struct FFmpegTests {
             try await gone.convert(job(input, .mp3), progress: { _ in })
         }
         guard case .toolMissing? = error else { Issue.record("got \(String(describing: error))"); return }
+    }
+
+    @Test func progressThatArrivesBeforeTheClipLengthIsNotLost() {
+        let seen = Collector()
+        let parser = OutputParser { seen.add($0) }
+        parser.consumeOutput(Data("out_time_us=500000\nprogress=continue\nout_time_us=1000000\n".utf8))
+        #expect(seen.values.isEmpty)                       // length unknown yet: nothing to report
+        parser.consumeLog(Data("  Duration: 00:00:02.00, start: 0\n".utf8))
+        #expect(seen.values == [0.5])                      // the latest value is reported once the length is known
+        parser.consumeOutput(Data("out_time_us=1500000\n".utf8))
+        #expect(seen.values == [0.5, 0.75])
+    }
+
+    @Test func partialLinesAreJoinedAndProgressIsCapped() {
+        let seen = Collector()
+        let parser = OutputParser { seen.add($0) }
+        parser.consumeLog(Data("Duration: 00:00:01.00\n".utf8))
+        parser.consumeOutput(Data("out_time_us=25".utf8))
+        parser.consumeOutput(Data("0000\nout_time_us=9000000\n".utf8))
+        #expect(seen.values == [0.25, 0.99])               // split across reads; never reports 100% before it ends
     }
 
     @Test func logParserReadsClipLength() {
