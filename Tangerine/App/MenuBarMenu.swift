@@ -27,6 +27,10 @@ struct MenuBarMenu: View {
                     launchAtLogin = LoginItem.isEnabled
                 }
             }
+        if !FFmpegLocator.isAvailable {
+            Divider()
+            Text("MP3 and MKV need ffmpeg: brew install ffmpeg")
+        }
         Divider()
         Button("Quit Tangerine") { NSApp.terminate(nil) }
             .keyboardShortcut("q")

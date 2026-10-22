@@ -9,7 +9,7 @@ enum PDFTools {
     static func merge(
         _ inputs: [URL],
         outputDirectory: URL,
-        progress: @Sendable (Double) -> Void = { _ in }
+        progress: @escaping @Sendable (Double) -> Void = { _ in }
     ) async throws -> URL {
         let merged = PDFDocument()
         for (index, input) in inputs.enumerated() {
@@ -44,7 +44,7 @@ enum PDFTools {
     static func split(
         _ input: URL,
         outputDirectory: URL,
-        progress: @Sendable (Double) -> Void = { _ in }
+        progress: @escaping @Sendable (Double) -> Void = { _ in }
     ) async throws -> URL {
         let source = try PDFSupport.open(input)
         let count = source.pageCount

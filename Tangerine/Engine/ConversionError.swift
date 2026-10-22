@@ -8,6 +8,9 @@ enum ConversionError: LocalizedError {
     case passwordProtected(URL)
     case emptyDocument(URL)
     case noText(URL)
+    case noAudioTrack(URL)
+    case toolMissing
+    case toolFailed(String)
 
     var errorDescription: String? {
         switch self {
@@ -21,6 +24,12 @@ enum ConversionError: LocalizedError {
             String(localized: "\(url.lastPathComponent) is password protected.")
         case .emptyDocument(let url):
             String(localized: "\(url.lastPathComponent) has no pages.")
+        case .toolMissing:
+            String(localized: "ffmpeg isn't installed. Install it with “brew install ffmpeg”.")
+        case .toolFailed(let detail):
+            String(localized: "ffmpeg couldn't convert this file: \(detail)")
+        case .noAudioTrack(let url):
+            String(localized: "\(url.lastPathComponent) has no audio track.")
         case .noText(let url):
             String(localized: "\(url.lastPathComponent) has no selectable text (it may be a scan).")
         }

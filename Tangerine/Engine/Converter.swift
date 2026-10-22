@@ -7,7 +7,7 @@ protocol Converter: Sendable {
 
     /// Writes a new file into `job.outputDirectory` and returns its URL.
     /// Must honour task cancellation and never leave partial output behind.
-    func convert(_ job: ConversionJob, progress: @Sendable (Double) -> Void) async throws -> URL
+    func convert(_ job: ConversionJob, progress: @escaping @Sendable (Double) -> Void) async throws -> URL
 
     /// Whether this converter handles `input` → `output`. Override to be stricter than the default.
     func canConvert(from input: UTType, to output: UTType) -> Bool

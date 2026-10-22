@@ -12,7 +12,7 @@ struct PDFToImageConverter: Converter {
     private static let dpi = 150.0
     private static let maxPixels = 8000.0
 
-    func convert(_ job: ConversionJob, progress: @Sendable (Double) -> Void) async throws -> URL {
+    func convert(_ job: ConversionJob, progress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         try Task.checkCancellation()
         let document = try PDFSupport.open(job.input)
         let count = document.pageCount

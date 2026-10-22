@@ -32,6 +32,14 @@ Run with the app built from Xcode (⌘R). Tick items as you go and note what fai
 - [ ] Same name already exists → " (1)" is added, the original is untouched
 - [ ] Cancel in the middle of a large PDF → no partial files
 
+## Audio and video
+- [ ] Drag an MP4 / MOV → the wheel offers MOV or MP4, M4A, WAV, FLAC; the result plays in QuickTime
+- [ ] A real phone video (HEVC, large) → MOV and → M4A; progress moves; cancel mid-way leaves no partial file
+- [ ] WAV / FLAC / M4A / MP3 files convert between each other (MP3 only as an input without ffmpeg)
+- [ ] A video without sound → M4A shows a clear error
+- [ ] Without ffmpeg: no MP3 / MKV wedges, and the menu-bar menu shows the install hint
+- [ ] With ffmpeg (`brew install ffmpeg`): MP3 and MKV appear after restarting Tangerine; MP4 → MP3, MKV → MP4, MP4 → MKV work and play; cancel stops ffmpeg (check Activity Monitor)
+
 ## Language
 - [ ] System language Thai → window, menu bar menu, radial menu, notifications and errors are in Thai
 - [ ] System language English → same in English

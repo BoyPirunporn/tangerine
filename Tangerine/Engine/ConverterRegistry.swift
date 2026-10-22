@@ -4,10 +4,15 @@ import UniformTypeIdentifiers
 struct ConverterRegistry: Sendable {
     let converters: [any Converter]
 
-    static let standard = ConverterRegistry(converters: [
+    /// Everything macOS can do by itself.
+    static let native = ConverterRegistry(converters: [
         ImageConverter(), ImageToPDFConverter(), PDFToImageConverter(),
         DocxToPDFConverter(), PDFToDocxConverter(), TextDocumentConverter(),
+        VideoExportConverter(), AudioFileConverter(),
     ])
+
+    /// Native converters first, then ffmpeg for what they can't do (MP3 output, MKV) if it is installed.
+    static let standard = ConverterRegistry(converters: native.converters + [FFmpegConverter()])
 
     func converter(from input: UTType, to output: UTType) -> (any Converter)? {
         converters.first { $0.canConvert(from: input, to: output) }
@@ -42,7 +47,7 @@ struct ConverterRegistry: Sendable {
     @concurrent
     func convert(
         _ job: ConversionJob,
-        progress: @Sendable (Double) -> Void = { _ in }
+        progress: @escaping @Sendable (Double) -> Void = { _ in }
     ) async throws -> URL {
         guard let inputType = try? job.input.resourceValues(forKeys: [.contentTypeKey]).contentType else {
             throw ConversionError.unreadableInput(job.input)

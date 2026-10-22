@@ -5,7 +5,7 @@ struct DocxToPDFConverter: Converter {
     let supportedInputs: Set<UTType> = [WordFormats.docx]
     let outputs: Set<UTType> = [.pdf]
 
-    func convert(_ job: ConversionJob, progress: @Sendable (Double) -> Void) async throws -> URL {
+    func convert(_ job: ConversionJob, progress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         try Task.checkCancellation()
         progress(0)
         let url = try await Self.perform(job)

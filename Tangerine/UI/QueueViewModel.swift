@@ -28,6 +28,7 @@ final class QueueViewModel {
     /// Order shown in pickers and on the radial menu.
     static let displayOrder: [UTType] = [
         .jpeg, .png, .heic, ImageFormats.avif, .tiff, .gif, .bmp, .pdf, WordFormats.docx, .plainText, .html,
+        MediaFormats.mp4, MediaFormats.mov, MediaFormats.mkv, MediaFormats.m4a, .mp3, .wav, MediaFormats.flac,
     ]
 
     var formats: [UTType] { Self.ordered(registry.allOutputs) }

@@ -3,7 +3,9 @@ import UniformTypeIdentifiers
 
 enum OutputPath {
     static func fileExtension(for type: UTType) -> String {
-        type == .jpeg ? "jpg" : (type.preferredFilenameExtension ?? "out")
+        if type == .jpeg { return "jpg" }
+        if type == MediaFormats.mkv { return "mkv" }
+        return type.preferredFilenameExtension ?? "out"
     }
 
     /// `name.ext`, or `name (1).ext`, `name (2).ext`… so existing files are never overwritten.

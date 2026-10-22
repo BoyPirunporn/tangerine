@@ -88,10 +88,12 @@ Prove the risky part before building the radial UI.
 - **Gate:** fresh clone builds and runs on a clean machine
 
 ## Phase 7 — Audio / Video (post-MVP)  (agent: `converter-engine`)
-- [ ] Bundle `ffmpeg` (arm64) + `Process` wrapper (resolve from `Bundle.main`, not PATH)
-- [ ] Video: MP4, MOV, MKV; audio: MP3, WAV, M4A, FLAC; video → audio extract
-- [ ] Parse ffmpeg progress (`-progress pipe:1`); kill process on cancel
-- [ ] Check ffmpeg license/size impact before bundling (GPL vs LGPL build) for the GitHub release
+Decision: **macOS first, the user's own ffmpeg for the rest. ffmpeg is NOT bundled** (no GPL/LGPL obligations, small app, no binary in the repo).
+- [x] Native (AVFoundation / Core Audio): MP4 ↔ MOV (re-wrapped when codecs allow), video → M4A, audio ↔ WAV / FLAC / M4A, sound out of a video as WAV / FLAC
+- [x] ffmpeg when installed (`brew install ffmpeg`): MP3 output, MKV in and out. Found at /opt/homebrew, /usr/local, /opt/local, or `TANGERINE_FFMPEG`; offers nothing when absent, menu-bar menu says how to install it
+- [x] Progress parsed from `-progress pipe:1`; the process is terminated on cancel and nothing partial is left (tested with a fake ffmpeg script)
+- [x] `.mkv` declared as a UTI in `Config/Info-extra.plist` (macOS doesn't know it)
+- [ ] Verified against a **real** ffmpeg (MP3 encoding, MKV remux, VideoToolbox H.264): the code paths are tested only with a fake ffmpeg so far
 - **Gate:** one file per type converts; cancel leaves no partial file
 
 ---
@@ -101,7 +103,7 @@ Prove the risky part before building the radial UI.
 - UX: menu-bar app; radial menu on file drag, formats chosen by file type. Trigger default = Shift held while dragging
 - "Press and hold a file without dragging" dropped from MVP (needs Finder automation permission, unreliable)
 - Distribution: future, free, GitHub, fork-friendly
-- MVP file types: image, PDF, Word. Audio/video (ffmpeg) deferred to Phase 7, not dropped
+- MVP file types: image, PDF, Word. Audio/video added in Phase 7 with macOS APIs + optional user-installed ffmpeg (not bundled)
 
 ## Open questions
 1. License: MIT (permissive, my suggestion) or something else?

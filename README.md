@@ -11,10 +11,10 @@ Everything runs on your Mac. No uploads, no accounts, no network.
 | Image | PNG, JPEG, HEIC, AVIF, TIFF, GIF, BMP. WebP can be read but not written (macOS can't encode it). Animated GIFs and multi-page TIFFs keep their first frame |
 | PDF | image → PDF; PDF → PNG/JPEG (a multi-page PDF becomes a folder of images); merge PDFs and images into one PDF; split a PDF into pages |
 | Word | DOCX → PDF / TXT / HTML; TXT / HTML → DOCX; PDF → DOCX **text only** (layout, images and tables are not kept; scanned PDFs have no text and are rejected) |
+| Audio / video | MP4 ↔ MOV, video → M4A, audio ↔ WAV / FLAC / M4A, and the sound of a video as WAV / FLAC. **MP3 output and MKV** need [ffmpeg](https://ffmpeg.org) (`brew install ffmpeg`); without it those two simply aren't offered |
 
 Your original files are never modified or deleted. If the output name exists, ` (1)`, ` (2)`… is added instead of overwriting.
 
-Audio and video (MP3, MP4…) are planned for a later version.
 
 ## Install
 

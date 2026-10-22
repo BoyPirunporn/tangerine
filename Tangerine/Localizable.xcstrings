@@ -1,13 +1,112 @@
 {
   "sourceLanguage": "en",
-  "version": "1.0",
   "strings": {
-    "Waiting": {
+    "%@ has no pages.": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "รอคิว"
+            "value": "%@ ไม่มีหน้า"
+          }
+        }
+      }
+    },
+    "%@ has no selectable text (it may be a scan).": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ไม่มีข้อความที่เลือกได้ (อาจเป็นไฟล์สแกน)"
+          }
+        }
+      }
+    },
+    "%@ is password protected.": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ มีรหัสผ่านป้องกันอยู่"
+          }
+        }
+      }
+    },
+    "%lld failed": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ล้มเหลว %lld ไฟล์"
+          }
+        }
+      }
+    },
+    "%lld files · %@": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ไฟล์ · %@"
+          }
+        }
+      }
+    },
+    "Add Files…": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มไฟล์…"
+          }
+        }
+      }
+    },
+    "Always when dragging a file": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ทุกครั้งที่ลากไฟล์"
+          }
+        }
+      }
+    },
+    "Animated GIFs keep only the first frame.": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GIF เคลื่อนไหวจะเหลือเฟรมแรกเฟรมเดียว"
+          }
+        }
+      }
+    },
+    "Can't read %@.": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่านไฟล์ %@ ไม่ได้"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยกเลิก"
           }
         }
       }
@@ -22,77 +121,8 @@
         }
       }
     },
-    "Cancel": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ยกเลิก"
-          }
-        }
-      }
-    },
-    "Show in Finder": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แสดงใน Finder"
-          }
-        }
-      }
-    },
-    "Convert to": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แปลงเป็น"
-          }
-        }
-      }
-    },
-    "Quality": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "คุณภาพ"
-          }
-        }
-      }
-    },
-    "Where converted files are saved": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ที่บันทึกไฟล์ที่แปลงแล้ว"
-          }
-        }
-      }
-    },
-    "Use original folder": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ใช้โฟลเดอร์เดิมของไฟล์"
-          }
-        }
-      }
-    },
-    "Next to original": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ข้างไฟล์ต้นฉบับ"
-          }
-        }
-      }
-    },
     "Choose": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
@@ -102,52 +132,90 @@
         }
       }
     },
-    "Add Files…": {
+    "Choose Files…": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "เพิ่มไฟล์…"
-          }
-        }
-      }
-    },
-    "PDF Tools": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เครื่องมือ PDF"
-          }
-        }
-      }
-    },
-    "Merge into One PDF…": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รวมเป็น PDF ไฟล์เดียว…"
-          }
-        }
-      }
-    },
-    "Split PDF into Pages…": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แยก PDF เป็นรายหน้า…"
+            "value": "เลือกไฟล์…"
           }
         }
       }
     },
     "Clear Finished": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
             "value": "ล้างรายการที่เสร็จแล้ว"
+          }
+        }
+      }
+    },
+    "Convert to": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แปลงเป็น"
+          }
+        }
+      }
+    },
+    "Converted %@": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แปลง %@ แล้ว"
+          }
+        }
+      }
+    },
+    "Converted %lld files": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แปลง %lld ไฟล์แล้ว"
+          }
+        }
+      }
+    },
+    "Converting %@ to %@ isn't supported.": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่รองรับการแปลง %@ เป็น %@"
+          }
+        }
+      }
+    },
+    "Converting…": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังแปลง…"
+          }
+        }
+      }
+    },
+    "Couldn't write %@.": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียนไฟล์ %@ ไม่ได้"
           }
         }
       }
@@ -162,77 +230,8 @@
         }
       }
     },
-    "Choose Files…": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เลือกไฟล์…"
-          }
-        }
-      }
-    },
-    "Merge %lld files into one PDF": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รวม %lld ไฟล์เป็น PDF เดียว"
-          }
-        }
-      }
-    },
-    "Split %@": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แยก %@"
-          }
-        }
-      }
-    },
-    "Converted %@": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แปลง %@ แล้ว"
-          }
-        }
-      }
-    },
-    "Converted %lld files": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แปลง %lld ไฟล์แล้ว"
-          }
-        }
-      }
-    },
-    "%lld failed": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ล้มเหลว %lld ไฟล์"
-          }
-        }
-      }
-    },
-    "Converting…": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "กำลังแปลง…"
-          }
-        }
-      }
-    },
     "Drop on a format": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
@@ -242,87 +241,8 @@
         }
       }
     },
-    "Open Tangerine": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เปิด Tangerine"
-          }
-        }
-      }
-    },
-    "Show format menu": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แสดงเมนูรูปแบบ"
-          }
-        }
-      }
-    },
-    "Launch at login": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เปิดแอพเมื่อเข้าสู่ระบบ"
-          }
-        }
-      }
-    },
-    "Quit Tangerine": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ออกจาก Tangerine"
-          }
-        }
-      }
-    },
-    "Always when dragging a file": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ทุกครั้งที่ลากไฟล์"
-          }
-        }
-      }
-    },
-    "Only while holding Shift": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เฉพาะตอนกด Shift ค้าง"
-          }
-        }
-      }
-    },
-    "Only when pressing %@": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เฉพาะตอนกด %@"
-          }
-        }
-      }
-    },
-    "Text only: layout, images and tables are not kept.": {
-      "localizations": {
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ได้เฉพาะข้อความ: ไม่คงเลย์เอาต์ รูปภาพ และตาราง"
-          }
-        }
-      }
-    },
     "Fonts, tables or images may look slightly different.": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
@@ -332,85 +252,242 @@
         }
       }
     },
-    "Animated GIFs keep only the first frame.": {
+    "Launch at login": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "GIF เคลื่อนไหวจะเหลือเฟรมแรกเฟรมเดียว"
+            "value": "เปิดแอพเมื่อเข้าสู่ระบบ"
           }
         }
       }
     },
-    "Can't read %@.": {
+    "Merge %lld files into one PDF": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "อ่านไฟล์ %@ ไม่ได้"
+            "value": "รวม %lld ไฟล์เป็น PDF เดียว"
           }
         }
       }
     },
-    "Converting %@ to %@ isn't supported.": {
+    "Merge into One PDF…": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ยังไม่รองรับการแปลง %@ เป็น %@"
+            "value": "รวมเป็น PDF ไฟล์เดียว…"
           }
         }
       }
     },
-    "Couldn't write %@.": {
+    "Next to original": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "เขียนไฟล์ %@ ไม่ได้"
+            "value": "ข้างไฟล์ต้นฉบับ"
           }
         }
       }
     },
-    "%@ is password protected.": {
+    "Only when pressing %@": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ มีรหัสผ่านป้องกันอยู่"
+            "value": "เฉพาะตอนกด %@"
           }
         }
       }
     },
-    "%@ has no pages.": {
+    "Only while holding Shift": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ ไม่มีหน้า"
+            "value": "เฉพาะตอนกด Shift ค้าง"
           }
         }
       }
     },
-    "%@ has no selectable text (it may be a scan).": {
+    "Open Tangerine": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ ไม่มีข้อความที่เลือกได้ (อาจเป็นไฟล์สแกน)"
+            "value": "เปิด Tangerine"
           }
         }
       }
     },
-    "%lld files · %@": {
+    "PDF Tools": {
+      "extractionState": "stale",
       "localizations": {
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld ไฟล์ · %@"
+            "value": "เครื่องมือ PDF"
+          }
+        }
+      }
+    },
+    "Quality": {
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คุณภาพ"
+          }
+        }
+      }
+    },
+    "Quit Tangerine": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ออกจาก Tangerine"
+          }
+        }
+      }
+    },
+    "Show format menu": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แสดงเมนูรูปแบบ"
+          }
+        }
+      }
+    },
+    "Show in Finder": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แสดงใน Finder"
+          }
+        }
+      }
+    },
+    "Split %@": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แยก %@"
+          }
+        }
+      }
+    },
+    "Split PDF into Pages…": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แยก PDF เป็นรายหน้า…"
+          }
+        }
+      }
+    },
+    "Text only: layout, images and tables are not kept.": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ได้เฉพาะข้อความ: ไม่คงเลย์เอาต์ รูปภาพ และตาราง"
+          }
+        }
+      }
+    },
+    "Use original folder": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้โฟลเดอร์เดิมของไฟล์"
+          }
+        }
+      }
+    },
+    "Waiting": {
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รอคิว"
+          }
+        }
+      }
+    },
+    "Where converted files are saved": {
+      "extractionState": "stale",
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ที่บันทึกไฟล์ที่แปลงแล้ว"
+          }
+        }
+      }
+    },
+    "%@ has no audio track.": {
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ไม่มีแทร็กเสียง"
+          }
+        }
+      }
+    },
+    "ffmpeg isn't installed. Install it with “brew install ffmpeg”.": {
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ติดตั้ง ffmpeg ติดตั้งด้วย “brew install ffmpeg”"
+          }
+        }
+      }
+    },
+    "ffmpeg couldn't convert this file: %@": {
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ffmpeg แปลงไฟล์นี้ไม่ได้: %@"
+          }
+        }
+      }
+    },
+    "MP3 and MKV need ffmpeg: brew install ffmpeg": {
+      "localizations": {
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MP3 และ MKV ต้องติดตั้ง ffmpeg: brew install ffmpeg"
           }
         }
       }
     }
-  }
+  },
+  "version": "1.0"
 }

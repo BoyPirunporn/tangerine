@@ -14,7 +14,7 @@ struct TextDocumentConverter: Converter {
         input != output && Self.formats.contains(input) && Self.formats.contains(output)
     }
 
-    func convert(_ job: ConversionJob, progress: @Sendable (Double) -> Void) async throws -> URL {
+    func convert(_ job: ConversionJob, progress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         try Task.checkCancellation()
         progress(0)
         let inputType = try job.input.resourceValues(forKeys: [.contentTypeKey]).contentType

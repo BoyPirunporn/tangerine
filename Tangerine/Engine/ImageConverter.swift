@@ -8,7 +8,7 @@ struct ImageConverter: Converter {
     let supportedInputs = ImageFormats.readable
     let outputs = ImageFormats.writable
 
-    func convert(_ job: ConversionJob, progress: @Sendable (Double) -> Void) async throws -> URL {
+    func convert(_ job: ConversionJob, progress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         try Task.checkCancellation()
         progress(0)
 
