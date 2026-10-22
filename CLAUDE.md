@@ -30,7 +30,7 @@ scripts/    # zsh: build, notarize, dmg
 docs/       # plans, decision log
 ```
 
-## Agents (`.claude/agents/`, each < 100 lines)
+## Agents (local helper briefs in `.claude/agents/`, each < 100 lines; not committed to the repo)
 | Agent | Role | Phase |
 |---|---|---|
 | `architect` | structure, protocols, tech decisions | 0–1 |
