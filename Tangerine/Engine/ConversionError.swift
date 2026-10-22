@@ -12,17 +12,17 @@ enum ConversionError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .unreadableInput(let url):
-            "Can't read \(url.lastPathComponent)."
+            String(localized: "Can't read \(url.lastPathComponent).")
         case .unsupportedConversion(let from, let to):
-            "Converting \(from.localizedDescription ?? from.identifier) to \(to.localizedDescription ?? to.identifier) isn't supported."
+            String(localized: "Converting \(from.localizedDescription ?? from.identifier) to \(to.localizedDescription ?? to.identifier) isn't supported.")
         case .writeFailed(let url):
-            "Couldn't write \(url.lastPathComponent)."
+            String(localized: "Couldn't write \(url.lastPathComponent).")
         case .passwordProtected(let url):
-            "\(url.lastPathComponent) is password protected."
+            String(localized: "\(url.lastPathComponent) is password protected.")
         case .emptyDocument(let url):
-            "\(url.lastPathComponent) has no pages."
+            String(localized: "\(url.lastPathComponent) has no pages.")
         case .noText(let url):
-            "\(url.lastPathComponent) has no selectable text (it may be a scan)."
+            String(localized: "\(url.lastPathComponent) has no selectable text (it may be a scan).")
         }
     }
 }

@@ -86,3 +86,32 @@ struct ImageConversionTests {
         #expect(outputs == ImageFormats.writable.subtracting([.png]).union([.pdf]))
     }
 }
+
+struct WriteFailureTests {
+    @Test func unwritableOutputFolderFailsCleanlyWithAReadableMessage() async throws {
+        let dir = try TestImages.makeTempDir()
+        let input = try TestImages.make("a.png", type: .png, in: dir)
+        let locked = dir.appendingPathComponent("locked")
+        try FileManager.default.createDirectory(at: locked, withIntermediateDirectories: true)
+        try FileManager.default.setAttributes([.posixPermissions: 0o555], ofItemAtPath: locked.path)
+        defer { try? FileManager.default.setAttributes([.posixPermissions: 0o755], ofItemAtPath: locked.path) }
+
+        let error = await #expect(throws: ConversionError.self) {
+            try await ConverterRegistry.standard.convert(
+                ConversionJob(input: input, outputType: .jpeg, outputDirectory: locked))
+        }
+        #expect(error?.errorDescription?.isEmpty == false)
+        #expect(try FileManager.default.contentsOfDirectory(atPath: locked.path).isEmpty)
+    }
+
+    @Test func everyErrorHasAMessage() {
+        let url = URL(fileURLWithPath: "/tmp/x.pdf")
+        let errors: [ConversionError] = [
+            .unreadableInput(url), .unsupportedConversion(from: .png, to: .mp3),
+            .writeFailed(url), .passwordProtected(url), .emptyDocument(url), .noText(url),
+        ]
+        for error in errors {
+            #expect(error.errorDescription?.contains("x.pdf") == true || error.errorDescription?.isEmpty == false)
+        }
+    }
+}

@@ -206,7 +206,7 @@ struct RadialMenuView: View {
             total + Int64((try? url.resourceValues(forKeys: [.fileSizeKey]).fileSize) ?? 0)
         }
         let size = ByteCountFormatter.string(fromByteCount: bytes, countStyle: .file)
-        return urls.count == 1 ? size : "\(urls.count) files · \(size)"
+        return urls.count == 1 ? size : String(localized: "\(urls.count) files · \(size)")
     }
 
     private func handleDrop(_ dropped: [URL], at point: CGPoint) -> Bool {
