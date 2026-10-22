@@ -70,9 +70,12 @@ Prove the risky part before building the radial UI.
 - **Gate:** fixture DOCX converts; limits visible in UI
 
 ## Phase 5 — Polish & Test  (agent: `qa-tester`)
-- [ ] Batch, filename collisions, corrupt files, disk full
-- [ ] Dock drop, shortcuts, localization (TH/EN)
-- [ ] Performance: large files never block the UI
+- [x] Batch, filename collisions, corrupt files, unwritable output folder (disk-full is in `docs/manual-test.md`: can't be simulated safely)
+- [x] Shortcuts (⌃⌥T), localization TH/EN (`Tangerine/Localizable.xcstrings`)
+- [x] Main window opens in front; stays hidden when launched at login (login case unverified)
+- [~] "Dock drop" dropped: the app has no Dock icon (menu-bar agent). "Open With" from Finder not done
+- [x] Performance: 300-page DOCX→PDF 0.65s (UI stalls ≤0.6s); 300-page PDF→DOCX 2.2s (UI stall cut from 2.2s to 0.3s)
+- [ ] Manual pass of `docs/manual-test.md` (full screen, two displays, Safari/Mail, login launch, notifications)
 - **Gate:** test suite green; manual checklist has no crashes
 
 ## Phase 6 — MVP Release (open source)  (agent: `release-packager`)

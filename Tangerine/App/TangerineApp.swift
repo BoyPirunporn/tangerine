@@ -16,9 +16,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         if Self.launchedAtLogin {
             // Start quietly in the menu bar; the window opens from the menu.
-            DispatchQueue.main.async { NSApp.windows.filter { $0.title == "Tangerine" }.forEach { $0.close() } }
+            DispatchQueue.main.async { NSApp.windows.filter { $0.title == AppWindow.title }.forEach { $0.close() } }
         } else {
-            NSApp.activate(ignoringOtherApps: true)
+            // The window is created just after launch, so wait a moment before raising it.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { AppWindow.bringToFront() }
         }
         notifier.setUp()
         queue.onBatchFinished = { [notifier] states in notifier.notify(states) }
@@ -31,7 +32,7 @@ struct TangerineApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var delegate
 
     var body: some Scene {
-        Window("Tangerine", id: "main") {
+        Window(AppWindow.title, id: "main") {
             ContentView(model: delegate.queue)
         }
         MenuBarExtra("Tangerine", systemImage: "arrow.triangle.2.circlepath") {

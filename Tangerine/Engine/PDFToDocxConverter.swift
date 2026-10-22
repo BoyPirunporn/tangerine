@@ -17,7 +17,7 @@ struct PDFToDocxConverter: Converter {
     }
 
     @MainActor
-    private static func perform(_ job: ConversionJob) throws -> URL {
+    private static func perform(_ job: ConversionJob) async throws -> URL {
         let document = try PDFSupport.open(job.input)
         let text = NSMutableAttributedString()
         for index in 0..<document.pageCount {
@@ -25,6 +25,8 @@ struct PDFToDocxConverter: Converter {
             guard let page = document.page(at: index)?.attributedString else { continue }
             if text.length > 0 { text.append(NSAttributedString(string: "\n\n")) }
             text.append(page)
+            // PDFKit needs the main thread; let the UI run between batches of pages.
+            if index % 10 == 9 { await Task.yield() }
         }
         guard !text.string.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw ConversionError.noText(job.input)

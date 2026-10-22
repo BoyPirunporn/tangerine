@@ -11,7 +11,7 @@ struct MenuBarMenu: View {
     var body: some View {
         Button("Open Tangerine") {
             openWindow(id: "main")
-            NSApp.activate(ignoringOtherApps: true)
+            AppWindow.bringToFront()
         }
         Picker("Show format menu", selection: $trigger) {
             ForEach(TriggerMode.allCases, id: \.rawValue) { mode in
